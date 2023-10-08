@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:37:43 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/08 22:59:50 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/10/08 22:49:53 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/10/08 23:00:17 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
-int	main(int argc, char **argv)
+#include <iostream>
+#include <fstream>
+#include <string>
+
+class Replace
 {
-	if (argc == 4)
-	{
-		Replace replace(argv[1], argv[2], argv[3]);
-		replace.replace();
-		return (0);
-	}
-	std::cout << "Wrong input" << std::endl;
-	return (1);
-}
+private:
+	std::string	filename;
+	std::string	targetStr;
+	std::string	replaceStr;
+
+public:
+	Replace( std::string filename, std::string targetStr, std::string replaceStr );
+	~Replace( void );
+
+	void	replace( void );
+};
+
+#endif
