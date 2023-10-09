@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:49:22 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/06 23:07:20 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:48:31 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 {
 	Account::_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex \
-		<< ";p_amount" << this->_amount \
+		<< ";p_amount:" << this->_amount \
 		<< ";withdrawal:";
 	if (this->_amount < withdrawal)
 	{
@@ -109,9 +109,9 @@ bool	Account::makeWithdrawal( int withdrawal )
 	else
 	{
 		this->_amount -= withdrawal;
+		this->_nbWithdrawals++;
 		this->_totalAmount -= withdrawal;
 		this->_totalNbWithdrawals++;
-		this->_totalAmount++;
 		std::cout << withdrawal \
 			<< ";amount:" << this->_amount \
 			<< ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
@@ -131,6 +131,6 @@ void	Account::displayStatus( void ) const
 	_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex \
 		<< ";amount:" << this->_amount \
-		<< ";deposit:" << this->_nbDeposits \
+		<< ";deposits:" << this->_nbDeposits \
 		<< ";withdrawals:" << this->_nbWithdrawals << std::endl;
 }

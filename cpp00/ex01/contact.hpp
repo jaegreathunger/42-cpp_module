@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 15:18:36 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/05 21:33:36 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/06 11:53:50 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 
 class	Contact
 {
-	private:
-		int			id;
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string phoneNumber;
-		std::string darkestSecret;
+private:
+	int			id;
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
 
-	public:
-		Contact();
-		int		getId(void);
-		void	setContact(int i);
-		void	format(std::string str);
-		void	displayBrief(void);
-		void	displayFull(void);
+public:
+	Contact();
+	int		getId(void);
+	void	setContact(int i);
+	void	format(std::string str);
+	void	displayBrief(void);
+	void	displayFull(void);
 };
 
 #endif

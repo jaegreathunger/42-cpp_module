@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 15:18:35 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/05 21:20:47 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:32:42 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {
@@ -50,6 +50,8 @@ void	Contact::displayBrief(void)
 	this->format(this->firstName);
 	std::cout << "|";
 	this->format(this->lastName);
+	std::cout << "|";
+	this->format(this->nickName);
 	std::cout << "|";
 }
 

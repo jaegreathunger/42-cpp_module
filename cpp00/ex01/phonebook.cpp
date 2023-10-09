@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:24:32 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/05 23:25:03 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:40:06 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 PhoneBook::PhoneBook(void)
 {
@@ -19,10 +19,30 @@ PhoneBook::PhoneBook(void)
 
 void	PhoneBook::add(void)
 {
-	if (this->index == 8)
-		this->index = 0;
-	this->contacts[index].setContact(index + 1);
+	this->contacts[index % 8].setContact(index % 8 + 1);
+	if (index < 8)
+		this->currentNbr++;
 	this->index++;
+}
+
+void	printDivider(void)
+{
+	std::cout << "---------------------------------------------" << std::endl;
+}
+
+void	printFormatSearch(void)
+{
+	printDivider();
+	std::cout << "|";
+	std::cout << std::setw(10) << "Index";
+	std::cout << "|";
+	std::cout << std::setw(10) << "First Name";
+	std::cout << "|";
+	std::cout << std::setw(10) << "Last Name";
+	std::cout << "|";
+	std::cout << std::setw(10) << "Nick Name";
+	std::cout << "|";
+	std::cout << std::endl;
 }
 
 void	PhoneBook::search(void)
@@ -30,25 +50,27 @@ void	PhoneBook::search(void)
 	std::string			line;
 	std::stringstream	ss;
 	int					ssi;
+	int					maxSearch;
 
 	if (this->index == 0)
 	{
 		std::cout << "Phonebook is empty." << std::endl;
 		return ;
 	}
-	std::cout << std::endl << "-JAE'S PHONEBOOK-" << std::endl;
-	for (int i = 0; i < index; i++)
+	printFormatSearch();
+	for (int i = 0; i < this->currentNbr; i++)
 	{
-		std::cout << "----------------------------------" << std::endl;
+		printDivider();
 		this->contacts[i].displayBrief();
 		std::cout << std::endl;
+		maxSearch = i + 1;
 	}
-	std::cout << "----------------------------------" << std::endl;
+	printDivider();
 	std::cout << "Enter the index for full info: ";
 	getline(std::cin, line);
 	ss << line;
 	ss >> ssi;
-	if (ssi < 1 || ssi > 9 || ssi > index + 1)
+	if (ssi > maxSearch || ssi < 1 || ssi > index + 1)
 	{
 		std::cout << "Wrong Index." << std::endl;
 		std::cout << "Press enter to go back to main...";

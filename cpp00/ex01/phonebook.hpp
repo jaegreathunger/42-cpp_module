@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:24:43 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/05 22:14:13 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:32:33 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 class PhoneBook
 {
-	private:
-		int	index;
-		Contact	contacts[8];
-	public:
-		PhoneBook();
-		void	add(void);
-		void	search(void);
+private:
+	int	index;
+	int	currentNbr;
+	Contact	contacts[8];
+public:
+	PhoneBook();
+	void	add(void);
+	void	search(void);
 };
 
 #endif
