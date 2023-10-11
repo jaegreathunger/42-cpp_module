@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.cpp                                        :+:      :+:    :+:   */
+/*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 22:52:47 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/08 23:00:32 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/11 14:40:34 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	Replace::replace( void )
 	std::string	line;
 	size_t		posTarget;
 	size_t		len;
+	size_t		lenOfTarget;
 	std::string	before;
 	std::string	after;
 	std::string	targetStr = this->targetStr;
@@ -57,8 +58,9 @@ void	Replace::replace( void )
 		while ((posTarget = line.find(targetStr)) != std::string::npos)
 		{
 			len = line.length();
+			lenOfTarget = targetStr.length();
 			before = line.substr(0, posTarget);
-			after = line.substr(posTarget + 1, len);
+			after = line.substr(posTarget + lenOfTarget, len);
 			before += replaceStr;
 			line = before + after;
 		}
