@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:54:38 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/12 18:14:52 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:11:48 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	a = Fixed( 1234.4321f );
+	std::cout << a << std::endl; // 0
+	std::cout << ++a << std::endl; // 0.00390625
+	std::cout << a << std::endl; // 0.00390625
+	std::cout << a++ << std::endl; // 0.00390625
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	std::cout << a << std::endl; // 0.0078125
+	std::cout << b << std::endl; // 10.1016
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl; // 10.1016
+
+	//std::cout << a + b << std::endl;
+	//std::cout << a - b << std::endl;
+	//std::cout << a / b << std::endl;
+	//std::cout << a * b << std::endl;
 	return 0;
 }
