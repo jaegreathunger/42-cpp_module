@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:55:16 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/12 21:41:13 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/13 13:09:10 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+#include "Point.hpp"
 
 class Fixed
 {

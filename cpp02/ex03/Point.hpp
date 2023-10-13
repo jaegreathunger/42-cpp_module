@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 12:54:38 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/13 13:19:24 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/10/13 11:49:32 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/10/13 13:17:53 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef POINT_HPP
+#define POINT_HPP
+
 #include "Fixed.hpp"
 
-int main( void )
+class Point
 {
-	Point point;
-	const Point point2(10, 10);
+private:
+	const Fixed x;
+	const Fixed y;
 	
-	std::cout << point.getX() << std::endl;
-	point = point2;
-	std::cout << point.getX() << std::endl;
+public:
+	Point();
+	Point(const float x, const float y);
+	Point(const Point &other);
+	Point &operator=(const Point &other);
+	~Point();
 	
-	return 0;
-}
+	Fixed getX() const;
+	Fixed getY() const;
+};
+
+#endif
