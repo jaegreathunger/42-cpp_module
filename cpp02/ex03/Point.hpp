@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:49:32 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/13 13:17:53 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/13 14:59:49 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ public:
 	Fixed getX() const;
 	Fixed getY() const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

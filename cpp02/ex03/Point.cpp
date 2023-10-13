@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:14:33 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/13 13:17:59 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/13 14:56:45 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ Point &Point::operator=(const Point &other)
 {
 	if (this != &other)
 	{
-		static_cast<Fixed>(this->x) = (other.getX());
-		static_cast<Fixed>(this->y) = (other.getY());
+		const_cast<Fixed&>(this->x) = (other.getX());
+		const_cast<Fixed&>(this->y) = (other.getY());
 	}
 	return *this;
 }

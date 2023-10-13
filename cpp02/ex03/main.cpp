@@ -6,11 +6,12 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:54:38 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/13 13:19:24 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/13 14:52:22 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void )
 {
