@@ -6,11 +6,13 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:46:25 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/15 22:41:20 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/16 13:44:08 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() {}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -24,6 +26,21 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Claptrap " << this->name << " has been destroyed." << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap &other)
+{
+	*this = other;
+	std::cout << "ClapTrap " << this->name << " has been copied with copy constuctor." << std::endl;
+}
+
+ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
+{
+	this->name = other.name;
+	this->hitPoint = other.hitPoint;
+	this->energyPoint = other.energyPoint;
+	this->attackDamage = other.attackDamage;
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string& target)

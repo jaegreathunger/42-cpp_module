@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:29:48 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/15 23:01:01 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/16 13:58:50 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class ScavTrap : public ClapTrap
 {
 private:
-	std::string	name;
-	int			hitPoint;
-	int			energyPoint;
-	int			attackDamage;
+	ScavTrap();
 
 public:
 	ScavTrap(std::string name);
 	~ScavTrap();
+	ScavTrap(const ScavTrap &other);
+	ScavTrap	&operator=(const ScavTrap &other);
 
+	void	attack(const std::string& target);
 	void	guardGate();
 };
 
