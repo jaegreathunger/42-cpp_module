@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:14:41 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/18 21:56:49 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/10/18 22:21:53 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/10/18 22:26:45 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Animal
+Brain::Brain()
 {
-protected:
-	std::string type;
+	std::cout << "Brain has been created." << std::endl;
+}
 
-public:
-	Animal();
-	Animal(std::string type);
-	virtual ~Animal();
-	Animal(const Animal &other);
-	Animal &operator=(const Animal &other);
+Brain::~Brain()
+{
+	std::cout << "Brain has been destroyed." << std::endl;
+}
 
-	std::string		getType() const;
-	void			setType(const std::string newType);
-	virtual void	makeSound() const;
-};
+Brain::Brain(const Brain &other)
+{
+	*this = other;
+	std::cout << "Brain has been created." << std::endl;
+}
 
-#endif
+Brain &Brain::operator=(const Brain &other)
+{
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = other.ideas[i];
+	return *this;
+}

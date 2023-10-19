@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:44 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/18 21:39:46 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/18 23:08:32 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog has been created." << std::endl;
+	this->brain = new Brain();
 }
 
 Dog::~Dog()
 {
+	delete this->brain;
 	std::cout << "Dog has been destroyed." << std::endl;
 }
 

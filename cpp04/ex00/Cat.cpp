@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:32:23 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/18 16:39:26 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/18 21:39:36 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 //Cat::Cat() {};
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal("Cat")
 {
-	this->type = "Cat";
 	std::cout << "Cat has been created." << std::endl;
 }
 

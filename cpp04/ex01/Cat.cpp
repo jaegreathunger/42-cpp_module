@@ -1,51 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:42:44 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/18 21:39:46 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/10/18 15:32:23 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/10/18 23:08:35 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-//Dog::Dog() {};
+//Cat::Cat() {};
 
-Dog::Dog() : Animal("Dog")
+Cat::Cat() : Animal("Cat")
 {
-	std::cout << "Dog has been created." << std::endl;
+	std::cout << "Cat has been created." << std::endl;
+	this->brain = new Brain();
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog has been destroyed." << std::endl;
+	delete this->brain;
+	std::cout << "Cat has been destroyed." << std::endl;
 }
 
-Dog::Dog(const Dog &other)
+Cat::Cat(const Cat &other)
 {
 	*this = other;
 }
 
-Dog &Dog::operator=(const Dog &other)
+Cat &Cat::operator=(const Cat &other)
 {
 	this->type = other.type;
 	return *this;
 }
 
-std::string	Dog::getType() const
+std::string	Cat::getType() const
 {
 	return this->type;
 }
 
-void	Dog::setType(std::string newType)
+void	Cat::setType(std::string newType)
 {
 	this->type = newType;
 }
 
-void	Dog::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << "I am a Dog, WHOOF WHOOF." << std::endl;
+	std::cout << "I am a cat, MEOW MEOW." << std::endl;
 }
