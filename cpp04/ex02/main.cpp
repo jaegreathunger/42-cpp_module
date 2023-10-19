@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:44:35 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 15:32:10 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/19 15:30:05 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,26 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-// polymorphism
+// abstract class
 
 int	main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	//const AAnimal *meta = new AAnimal(); // not instantiable. 
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
+
 	std::cout << std::endl;
 
-	std::cout << j->getType() << " - Dog" << std::endl;
-	std::cout << i->getType() << " - Cat" << std::endl;
-	std::cout << std::endl;
-
-	i->makeSound(); //will output the cat sound!
-	j->makeSound(); //will output the dog sound!
-	meta->makeSound();
-	std::cout << std::endl;
-
-	delete meta;
-	delete j;
+	delete j; //should not create a leak
 	delete i;
-	std::cout << std::endl;
 
-	const WrongAnimal *wrongMeta = new WrongAnimal();
-	const WrongAnimal *wrongCat = new WrongCat();
-	std::cout << std::endl;
-
-	std::cout << wrongMeta->getType() << " - Wrong Animal" << std::endl;
-	std::cout << wrongCat->getType() << " - Wrong Cat" << std::endl;
-	std::cout << std::endl;
-
-	wrongMeta->makeSound();
-	wrongCat->makeSound();
-	std::cout << std::endl;
-
-	delete wrongMeta;
-	delete wrongCat;
-
+	// std::cout << std::endl;
+	// const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	// std::cout << std::endl;
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	delete animals[i];
+	// 	std::cout << std::endl;
+	// }
 	return 0;
 }
