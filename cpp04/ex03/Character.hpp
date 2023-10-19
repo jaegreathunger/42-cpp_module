@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 15:35:34 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 23:08:40 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/10/19 22:21:20 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/10/19 23:08:28 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include <iostream>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class AMateria
+class Character : public ICharacter
 {
-protected:
-	std::string type;
-
 public:
-	AMateria();
-	virtual ~AMateria();
-	AMateria(std::string const & type);
-	AMateria &operator=(const AMateria &other);
+	std::string	name;
+	AMateria	*inventory[4];
 
-	std::string const	&getType() const; //Returns the materia type
-	virtual AMateria*	clone() const = 0;
-	virtual void		use(ICharacter& target);
+private:
+	Character();
+	Character(std::string name);
+	~Character();
+	Character(const Character &other);
+	Character &operator=(const Character &other);
+
+	std::string const	&getName() const;
+	void				equip(AMateria* m);
+	void				unequip(int idx);
+	void				use(int idx, ICharacter& target);
 };
 
 #endif
