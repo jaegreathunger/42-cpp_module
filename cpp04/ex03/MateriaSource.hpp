@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:00:52 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 23:06:37 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 11:39:16 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ private:
 public:
 	MateriaSource();
 	~MateriaSource();
+	MateriaSource(const MateriaSource &other);
+	MateriaSource &operator=(const MateriaSource &other);
 
-	void 		learnMateria(AMateria*);
+	void 		learnMateria(AMateria *m);
 	AMateria*	createMateria(std::string const & type);
 };
 

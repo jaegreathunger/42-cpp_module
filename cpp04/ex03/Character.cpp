@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:31:42 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 22:57:06 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 11:16:21 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 Character::Character() : name("Unknown")
 {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	std::cout << this->name << " has been created." << std::endl;
 }
 
 Character::Character(std::string name)
 {
 	this->name = name;
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	std::cout << this->name << " has been created." << std::endl;
 }
 
