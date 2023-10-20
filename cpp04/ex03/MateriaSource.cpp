@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:29:50 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/20 13:23:20 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 15:37:35 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void MateriaSource::learnMateria(AMateria *m)
 		{
 			this->materias[i] = m;
 			std::cout << "MateriaSource learned " << m->getType() << std::endl;
+			return ;
 		}
 	}
 }
