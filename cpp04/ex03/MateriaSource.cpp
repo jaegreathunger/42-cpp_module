@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:29:50 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/20 11:42:13 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:23:20 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ void MateriaSource::learnMateria(AMateria *m)
 			std::cout << "MateriaSource learned " << m->getType() << std::endl;
 		}
 	}
-	std::cout << "MateriaSource failed to learn " << m->getType() << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-	for ( int i = 0; i < 4; i++ )
-		if ( materias[i] && materias[i]->getType() == type )
+	for (int i = 0; i < 4; i++)
+		if (materias[i] && materias[i]->getType() == type)
 			return materias[i]->clone();
 	return NULL;
 }

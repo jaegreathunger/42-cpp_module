@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 21:36:44 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 22:17:45 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:08:55 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ AMateria *Ice::clone() const
 	return ice;
 }
 
-void AMateria::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " \
 		<< target.getName() << " *" << std::endl;

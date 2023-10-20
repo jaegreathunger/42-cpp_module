@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:06:30 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 23:08:12 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:14:43 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 #define CURE_HPP
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
 class Cure : public AMateria
 {
-private:
+public:
 	Cure();
 	~Cure();
 	Cure(const Cure &other);

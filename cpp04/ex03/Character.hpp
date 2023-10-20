@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:21:20 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 23:08:28 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 12:13:46 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 class Character : public ICharacter
 {
-public:
+private:
 	std::string	name;
 	AMateria	*inventory[4];
 
-private:
+public:
 	Character();
 	Character(std::string name);
 	~Character();

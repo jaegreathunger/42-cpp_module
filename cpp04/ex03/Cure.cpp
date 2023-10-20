@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:06:34 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 22:17:40 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:09:00 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ AMateria *Cure::clone() const
 	return cure;
 }
 
-void AMateria::use(ICharacter &target)
+void Cure::use(ICharacter &target)
 {
 	std::cout << "* heals "<< target.getName() << \
 		"'s wounds *" << std::endl;

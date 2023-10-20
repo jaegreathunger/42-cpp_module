@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 15:37:29 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/20 11:22:58 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 12:21:18 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
+#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

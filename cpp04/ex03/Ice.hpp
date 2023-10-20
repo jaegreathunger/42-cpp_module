@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 21:19:14 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 23:08:05 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:14:48 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 #define ICE_HPP
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
-private:
+public:
 	Ice();
 	~Ice();
 	Ice(const Ice &other);

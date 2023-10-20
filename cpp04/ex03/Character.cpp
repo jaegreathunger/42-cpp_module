@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:31:42 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/20 11:16:21 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:30:09 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void Character::equip(AMateria *m)
 		{
 			this->inventory[i] = m;
 			std::cout << this->name << " has equiped with " \
-			<< m->getType() << "." << std::endl;
+				<< m->getType() << "." << std::endl;
 			return ;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 21:07:00 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/10/19 21:51:46 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:12:40 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ AMateria::~AMateria()
 AMateria::AMateria(std::string const &type)
 {
 	this->type = type;
-	std::cout << "AMateria has been copied." << std::endl;
+	std::cout << "AMateria has been created." << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &other)
@@ -42,5 +42,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "AMateria use function." << std::endl;
+	std::cout << "AMateria use function to " << target.getName() << std::endl;
 }
