@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:48:49 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/13 22:01:42 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/14 19:01:02 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,37 @@ void Bureaucrat::decrement()
 	if (_grade >= 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cerr << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (AForm::GradeTooLowException const &e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch(AForm::NotSignedForm const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat)
