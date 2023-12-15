@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:48:52 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/14 19:20:46 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/15 14:54:20 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 		Bureaucrat person = Bureaucrat("Jaejun", 150);
 		std::cout << person;
 		std::cout << std::endl;
-		
+
 		ShrubberyCreationForm sForm = ShrubberyCreationForm("ft");
 		std::cout << sForm;
 		person.signForm(sForm);
@@ -41,13 +41,9 @@ int main()
 		person.signForm(pForm);
 		person.executeForm(pForm);
 	}
-	catch (Bureaucrat::GradeTooHighException const &e)
+	catch (std::exception const &e)
 	{
-		std::cout << "Error: GradeTooHighException: " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException const &e)
-	{
-		std::cout << "Error: GradeTooLowException: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	return 0;
 }

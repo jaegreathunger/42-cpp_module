@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:48:49 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/14 15:24:11 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/15 14:55:33 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void Bureaucrat::signForm(Form &form)
 	}
 	catch (Form::GradeTooLowException const &e)
 	{
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		throw GradeTooLowException();
 	}
 }
 
