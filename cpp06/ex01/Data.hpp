@@ -13,6 +13,8 @@ class Data
 
 	public:
 		Data(int iValue, float _fValue, double _dValue);
+		Data(Data const &obj);
+		Data &operator=(Data const &rhs);
 		~Data();
 
 		int getIntValue() const;

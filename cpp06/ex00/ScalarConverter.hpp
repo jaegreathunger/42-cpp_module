@@ -10,6 +10,8 @@ class ScalarConverter
 		ScalarConverter();
 
 	public:
+		ScalarConverter(ScalarConverter const &obj);
+		ScalarConverter &operator=(ScalarConverter const &rhs);
 		~ScalarConverter();
 
 		static void convertToChar(std::string const &input);

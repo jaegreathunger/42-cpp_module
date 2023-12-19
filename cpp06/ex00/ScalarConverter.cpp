@@ -2,6 +2,17 @@
 
 ScalarConverter::ScalarConverter() {}
 
+ScalarConverter::ScalarConverter(ScalarConverter const &obj)
+{
+	*this = obj;
+}
+
+ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs)
+{
+	(void)rhs;
+	return *this;
+}
+
 ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convertToChar(std::string const &input)
