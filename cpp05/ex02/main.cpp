@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:48:52 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/15 14:54:20 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:56:39 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat person = Bureaucrat("Jaejun", 150);
+		Bureaucrat person = Bureaucrat("Jaejun", 1);
 		std::cout << person;
 		std::cout << std::endl;
 

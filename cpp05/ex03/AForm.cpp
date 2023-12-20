@@ -37,7 +37,7 @@ int AForm::getGradeExe() const
 
 void AForm::beSigned(Bureaucrat const &bureaucrat)
 {
-	if (_gradeSign > bureaucrat.getGrade())
+	if (_gradeSign < bureaucrat.getGrade())
 		throw GradeTooLowException();
 	_signed = true;
 }

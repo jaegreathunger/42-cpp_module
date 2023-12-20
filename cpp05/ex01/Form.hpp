@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:27:35 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/14 15:27:36 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:46:52 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ class Form
 					return "Grade is too low!";
 				}
 		};
-
-		friend std::ostream &operator<<(std::ostream &os, Form const &form);
 };
+
+std::ostream &operator<<(std::ostream &os, Form const &form);

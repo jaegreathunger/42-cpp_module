@@ -56,6 +56,6 @@ class AForm
 					return "Form is not signed!";
 				}
 		};
-
-		friend std::ostream &operator<<(std::ostream &os, AForm const &Aform);
 };
+
+std::ostream &operator<<(std::ostream &os, AForm const &Aform);

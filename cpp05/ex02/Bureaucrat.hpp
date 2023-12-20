@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:48:58 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/12/14 19:01:06 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:46:30 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ class Bureaucrat
 					return "Grade is too low!";
 				}
 		};
-
-		friend std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);
 };
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);
