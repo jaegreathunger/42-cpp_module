@@ -3,6 +3,8 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <list>
+#include <deque>
 #include <algorithm>
 #include <iterator>
 
@@ -15,6 +17,7 @@ class OccurrenceNotFound: public std::exception
 		}
 };
 
+// typename T::iterator == this allows the associative containers
 template <typename T>
 typename T::iterator easyfind(T &container, int target)
 {
