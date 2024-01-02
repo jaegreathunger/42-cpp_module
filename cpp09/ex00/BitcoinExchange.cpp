@@ -68,30 +68,11 @@ std::vector<std::string> generateStrVec(std::vector<std::string> vec, char divid
 	return result;
 }
 
-bool validInput(std::vector<std::string> inputDate) {
-	if (2009 <= atof(inputDate[0].c_str()) && atof(inputDate[0].c_str()) <= 2022) {
-		if (atof(inputDate[0].c_str()) == 2009) {
-			if (1 <= atof(inputDate[1].c_str()) && atof(inputDate[1].c_str()) <= 12) {
-				if (2 <= atof(inputDate[2].c_str()) && atof(inputDate[2].c_str()) <= 31) {
-					return true;
-				}
-			}
-			return false;
-		} else if (atof(inputDate[0].c_str()) == 2022) {
-			if (1 <= atof(inputDate[1].c_str()) && atof(inputDate[1].c_str()) <= 3) {
-				if (1 <= atof(inputDate[2].c_str()) && atof(inputDate[2].c_str()) <= 29) {
-					return true;
-				}
-			}
-			return false;
-		} else if (1 <= atof(inputDate[1].c_str()) && atof(inputDate[1].c_str()) <= 12) {
-			if (1 <= atof(inputDate[2].c_str()) && atof(inputDate[2].c_str()) <= 31) {
-				return true;
-			}
-			return false;
-		}
+bool validInput(std::vector<std::string> input) {
+	if (input[1].length() == 0 || input.size() < 2) {
+		return false;
 	}
-	return false;
+	return true;
 }
 
 int convertToInt(std::string const &input)
@@ -117,8 +98,28 @@ void BitcoinExchange::perform(void) const
 		std::vector<std::string> input = generateStrVec(_inputVec, '|', i);
 		std::vector<std::string> inputDate = generateStrVec(input, '-', 0);
 
-		if (!validInput(inputDate)) {
+		if (!validInput(input)) {
 			std::cout << "Error: bad input => " << input[0] << std::endl;
+			continue;
+		} else if (convertToFloat(inputDate[1]) > 12 || convertToFloat(inputDate[2]) > 31) {
+			std::cout << "Error: bad input => " << input[0] << std::endl;
+			continue;
+		}
+
+		try
+		{
+			if (std::stod(input[1]) < 0) {
+				std::cout << "Error: not a positive number." << std::endl;
+				continue;
+			}
+			else if (std::stod(input[1]) > 1000) {
+				std::cout << "Error: too large a number." << std::endl;
+				continue;
+			}
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: Input Not A Number" << std::endl;
 			continue;
 		}
 
@@ -126,30 +127,39 @@ void BitcoinExchange::perform(void) const
 			std::vector<std::string> data = generateStrVec(_dataVec, ',', j);
 			std::vector<std::string> dataDate = generateStrVec(data, '-', 0);
 
+			if ((convertToFloat(inputDate[0]) < convertToFloat(dataDate[0])) ||\
+				(convertToFloat(inputDate[0]) == convertToFloat(dataDate[0]) &&\
+				convertToFloat(inputDate[1]) < convertToFloat(dataDate[1])) ||\
+				(convertToFloat(inputDate[0]) == convertToFloat(dataDate[0]) &&\
+				convertToFloat(inputDate[1]) == convertToFloat(dataDate[1]) &&\
+				convertToFloat(inputDate[2]) <= convertToFloat(dataDate[2]))) {
+				std::cout << input[0] << "=>" << input[1] << " = " \
+					<< convertToFloat(input[1]) * convertToFloat(data[1]) << std::endl;
+				break;
+			}
+
 			if (inputDate[0] == dataDate[0] && inputDate[1] == dataDate[1]) {
-				if (convertToFloat(inputDate[2]) == convertToFloat(dataDate[2])) {
-					if (convertToFloat(input[1]) < 0)
-						std::cout << "Error: not a positive number." << std::endl;
-					else if (convertToFloat(input[1]) > 1000)
-						std::cout << "Error: too large a number." << std::endl;
-					else
-						std::cout << input[0] << "=>" << input[1] << " = " \
-							<< convertToFloat(input[1]) * convertToFloat(data[1]) << std::endl;
+				std::vector<std::string> before = generateStrVec(_dataVec, ',', j - 1);
+				std::vector<std::string> beforeDate = generateStrVec(before, '-', 0);
+				if ((convertToFloat(inputDate[2]) > convertToFloat(beforeDate[2]) &&
+					convertToFloat(inputDate[2]) < convertToFloat(dataDate[2])) ||
+					(convertToFloat(inputDate[2]) < convertToFloat(dataDate[2]) &&
+					convertToFloat(inputDate[1]) > convertToFloat(beforeDate[1])) ||
+					(convertToFloat(inputDate[2]) < convertToFloat(dataDate[2]) &&
+					convertToFloat(inputDate[1]) < convertToFloat(beforeDate[1]) &&
+					convertToFloat(inputDate[0]) > convertToFloat(beforeDate[0]))) {
+					std::cout << input[0] << "=>" << input[1] << " = " \
+						<< convertToFloat(input[1]) * convertToFloat(before[1]) << std::endl;
 					break;
-				} else {
-					std::vector<std::string> before = generateStrVec(_dataVec, ',', j - 1);
-					std::vector<std::string> beforeDate = generateStrVec(before, '-', 0);
-					if ((convertToFloat(inputDate[2]) > convertToFloat(beforeDate[2]) &&
-						convertToFloat(inputDate[2]) < convertToFloat(dataDate[2])) ||
-						(convertToFloat(inputDate[2]) < convertToFloat(dataDate[2]) &&
-						convertToFloat(inputDate[1]) > convertToFloat(beforeDate[1])) ||
-						(convertToFloat(inputDate[2]) < convertToFloat(dataDate[2]) &&
-						convertToFloat(inputDate[0]) > convertToFloat(beforeDate[0]))) {
-						std::cout << input[0] << "=>" << input[1] << " = " \
-							<< convertToFloat(input[1]) * convertToFloat(before[1]) << std::endl;
-						break;
-					}
+				} else if (j == _dataVec.size() - 1 && inputDate[2] > dataDate[2]) {
+					std::cout << input[0] << "=>" << input[1] << " = " \
+						<< convertToFloat(input[1]) * convertToFloat(data[1]) << std::endl;
+					break;
 				}
+			} else if (j == _dataVec.size() - 1) {
+				std::cout << input[0] << "=>" << input[1] << " = " \
+					<< convertToFloat(input[1]) * convertToFloat(data[1]) << std::endl;
+				break;
 			}
 		}
 	}
