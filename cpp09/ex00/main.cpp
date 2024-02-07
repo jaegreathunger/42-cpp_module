@@ -7,8 +7,8 @@ int main(int argc, char **argv)
 		std::cerr << "Wrong Arguments." << std::endl;
 		return 1;
 	}
-	btc.storeDataVec(argv[1]);
-	btc.storeInputVec("input.txt");
+	btc.storeDataVec("data.csv");
+	btc.storeInputVec(argv[1]);
 	btc.perform();
 	return 0;
 }

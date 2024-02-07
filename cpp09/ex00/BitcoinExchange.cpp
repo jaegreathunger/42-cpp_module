@@ -132,7 +132,7 @@ void BitcoinExchange::perform(void) const
 				convertToFloat(inputDate[1]) < convertToFloat(dataDate[1])) ||\
 				(convertToFloat(inputDate[0]) == convertToFloat(dataDate[0]) &&\
 				convertToFloat(inputDate[1]) == convertToFloat(dataDate[1]) &&\
-				convertToFloat(inputDate[2]) <= convertToFloat(dataDate[2]))) {
+				convertToFloat(inputDate[2]) >= convertToFloat(dataDate[2]))) {
 				std::cout << input[0] << "=>" << input[1] << " = " \
 					<< convertToFloat(input[1]) * convertToFloat(data[1]) << std::endl;
 				break;
